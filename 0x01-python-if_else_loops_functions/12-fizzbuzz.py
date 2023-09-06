@@ -8,5 +8,5 @@ def fizzbuzz():
         if j % 5 == 0:
             print("Buzz", end="")
         if j % 3 != 0 and j % 5 != 0:
-            print("{:d}".format(i), end="")
+            print("{:d}".format(j), end="")
         print(" ", end="")
