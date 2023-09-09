@@ -7,8 +7,8 @@ def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         row_len = len(row)
         for j in range(row_len):
-            if j != i_len - 1:
-                print("{:d}".format(row[j]), end=" ")
+            if j != row_len - 1:
+                print("{:d}".format(row[j]), end=' ')
             else:
-                print("{:d}".format(row[j]), end="")
+                print("{:d}".format(row[j]), end='')
         print()
