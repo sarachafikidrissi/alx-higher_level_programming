@@ -4,6 +4,6 @@ def element_at(my_list, idx):
     function that retrieves an element from a list
     """
     if idx < 0 or idx >= len(my_list):
-        return None
+        return
 
-    return(my_list[idx])
+    return (my_list[idx])
