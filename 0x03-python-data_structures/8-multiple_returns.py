@@ -8,6 +8,6 @@ def multiple_returns(sentence):
     info_tuple = len(sentence), sentence[0]
 
     if len(sentence) == 0:
-        info_tuple[1] = 'None'
+        info_tuple[1] = None
 
     return (info_tuple)
