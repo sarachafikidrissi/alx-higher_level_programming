@@ -31,10 +31,10 @@ int is_palindrome(listint_t **head)
 	}
 	for (i = 0; i < count / 2; i++)
 	{
-		if (array[i] != array[count - 1 -i])
+		if (array[i] != array[count - 1 - i])
 		{
 			free(array);
-			return(0);
+			return (0);
 		}
 	}
 	free(array);
