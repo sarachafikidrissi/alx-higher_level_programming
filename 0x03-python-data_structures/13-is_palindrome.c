@@ -1,4 +1,7 @@
 #include "lists.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * is_palindrome - a function that checks if a singly lilnked
@@ -26,7 +29,7 @@ int is_palindrome(listint_t **head)
 		array[i++] = temp->n;
 		temp = temp->next;
 	}
-	for (i = 0, i < count / 2; i++)
+	for (i = 0; i < count / 2; i++)
 	{
 		if (array[i] != array[count - 1 -i])
 		{
