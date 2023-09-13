@@ -7,6 +7,7 @@ def square_matrix_simple(matrix=[]):
     if matrix is None:
         return None
     new_matrix = []
+
     def square(x):
         return (x ** 2)
 
