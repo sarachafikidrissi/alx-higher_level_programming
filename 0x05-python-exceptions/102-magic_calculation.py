@@ -11,4 +11,6 @@ def magic_calculation(a, b):
         except ZeroDivisionError:
             result = b + a
             break
-        return result
+    return result
+import dis
+dis.dis(magic_calculation)
