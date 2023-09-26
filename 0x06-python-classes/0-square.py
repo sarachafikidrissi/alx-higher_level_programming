@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 # -*- coding: utf-8 -*-
 """
 created on Tue September 26 2023
