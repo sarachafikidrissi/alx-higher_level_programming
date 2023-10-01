@@ -1,0 +1,68 @@
+========================================================================
+'Test for 4-print_square module'
+========================================================================
+'Funtion to test:   print_square()'
+========================================================================
+
+>>> print_square = __import__('4-print_square').print_square
+
+'size is integer'
+>>> print_square(4)
+####
+####
+####
+####
+
+'size is floating'
+>>> print_square(4.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is less than zero'
+>>> print_square(-1)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+'size is float and less thatn 0'
+>>> print_square(-2.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is a list'
+>>> print_square([1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is a dic'
+>>> print_square({'name': 'Alice', 'age': 25})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is a tuple'
+>>> print_square(('John', 30))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is a set'
+>>> print_square({'apple', 'banana', 'cherry'})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is a boolean'
+>>> print_square(True)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+'size is empty'
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
