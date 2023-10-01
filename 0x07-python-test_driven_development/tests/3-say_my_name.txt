@@ -1,0 +1,69 @@
+========================================================================
+'Test for 3-say_my_name module'
+========================================================================
+'Funtion to test:   say_my_name()'
+========================================================================
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+'first name and last name are strings'
+>>> say_my_name("sara", "chafik")
+My name is sara chafik
+
+'first_name is an integer'
+>>> say_my_name(4, "sara")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+'last_name is not an integer'
+>>> say_my_name("sara", 5)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'first_name and last_name empty'
+>>> say_my_name("")
+My name is  
+
+'last_name is empty'
+>>> say_my_name("chafik")
+My name is chafik 
+
+'last_name is float'
+>>> say_my_name("sara", 2.5)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'last_name is a list'
+>>> say_my_name("sara", [1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'last_name is a dict'
+>>> say_my_name("sara", {'name': 'Alice', 'age': 25})
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+
+'last_name is a boolean'
+>>> say_my_name("sara", True)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+
+'last_name is a set'
+>>> say_my_name("sara", {1, 2, 3})
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'first_name is empty'
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
