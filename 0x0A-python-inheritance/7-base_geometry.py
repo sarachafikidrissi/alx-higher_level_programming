@@ -8,15 +8,21 @@ This is 5-base_geometry Class
 
 class BaseGeometry:
     """
-    Raises:
-        Exception: area() is not implemented
-        TypeError: in case value is not integer
-        ValueError: in case value is less or equal than zero
+    This is a Class
     """
     def area(self):
+        """
+        Public instance method that calculates the area
+
+        Raises:
+            Exception if area is not imlemented
+        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
+        """
+        Public instance method that validates integer input
+        """
         if type(value) is not int:
             raise TypeError(name + " must be an integer")
         elif value <= 0:
