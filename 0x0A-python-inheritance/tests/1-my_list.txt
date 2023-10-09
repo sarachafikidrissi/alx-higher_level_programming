@@ -58,3 +58,10 @@
 >>> my_list.append('Hola')
 >>> my_list.print_sorted()
 ['Hola', 'Meco', 'Montes', 'Much']
+
+'One argumet in print_sorted'
+>>> my_list = MyList()
+>>> my_list.print_sorted(6)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
