@@ -37,3 +37,24 @@
 >>> my_list.append([12, 13, 14])
 >>> my_list.print_sorted()
 [[7, 8, 9], [12, 13, 14], [15, 25, 20]]
+
+'A list of boolean'
+>>> my_list = MyList()
+>>> my_list.append(True)
+>>> my_list.append(True)
+>>> my_list.append(False)
+>>> my_list.append(False)
+>>> my_list.append(True)
+>>> my_list.append(True)
+>>> my_list.append(True)
+>>> my_list.print_sorted()
+[False, False, True, True, True, True, True]
+
+'A list of strings'
+>>> my_list = MyList()
+>>> my_list.append('Much')
+>>> my_list.append('Montes')
+>>> my_list.append('Meco')
+>>> my_list.append('Hola')
+>>> my_list.print_sorted()
+['Hola', 'Meco', 'Montes', 'Much']
