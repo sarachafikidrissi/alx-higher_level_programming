@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+This Model contains lookup function
+"""
 
 
 def lookup(obj):
