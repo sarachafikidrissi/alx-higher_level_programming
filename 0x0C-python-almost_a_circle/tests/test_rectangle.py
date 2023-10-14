@@ -75,6 +75,33 @@ class TestRectangle(unittest.TestCase):
             expected_output = "[Rectangle] (12) 2/1 - 4/6\n"
         self.assertEqual(printed_output, expected_output)
 
+    def test_update_args(self):
+        """test for update method: args
+        """
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.update(89)
+
+        import io
+        from unittest.mock import patch
+        with patch('sys.stdout', new_callable=io.StringIO) as update_stdout:
+            print(r1)
+            printed_output = update_stdout.getvalue()
+            expected_output = "[Rectangle] (89) 10/10 - 10/10\n"
+        self.assertEqual(printed_output, expected_output)
+
+    def test_update_kwargs(self):
+        """test for update method: kwargs
+        """
+        R = Rectangle(1, 2, 3, 4, 5)
+        R.update(6, id=7)
+        self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 1, 2, 3, 4])
+        R.update(6, 7, 8, x=9, y=10)
+        self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 7, 8, 3, 4])
+        R.update(width=7, id=6, height=8)
+        self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 7, 8, 3, 4])
+        R.update(x=40, y=5)
+        self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 7, 8, 40, 5])
+
 
 if __name__ == '__main__':
     unittest.main()
