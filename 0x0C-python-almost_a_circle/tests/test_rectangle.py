@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+This is test_rectangle module
+"""
 import unittest
 from models.rectangle import Rectangle
 
@@ -101,6 +106,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 7, 8, 3, 4])
         R.update(x=40, y=5)
         self.assertEqual([R.id, R.width, R.height, R.x, R.y], [6, 7, 8, 40, 5])
+
+    def test_dictionary(self):
+        """
+        Tests for dictionary method
+        """
+        R = Rectangle(100, 200, 300, 400, 500)
+        R_dict = R.to_dictionary()
+        self.assertEqual(R_dict['width'], 100)
+        self.assertEqual(R_dict['height'], 200)
+        self.assertEqual(R_dict['x'], 300)
+        self.assertEqual(R_dict['y'], 400)
+        self.assertEqual(R_dict['id'], 500)
 
 
 if __name__ == '__main__':
