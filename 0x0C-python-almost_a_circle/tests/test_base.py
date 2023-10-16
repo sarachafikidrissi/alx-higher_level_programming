@@ -130,6 +130,57 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 38)
 
+    ef test_H_test_from_json_string(self):
+        '''Tests to_json_string() signature:'''
+        with self.assertRaises(TypeError) as e:
+            Base.from_json_string()
+        s = "from_json_string() missing 1 required positional argument: \
+'json_string'"
+        self.assertEqual(str(e.exception), s)
+
+        self.assertEqual(Base.from_json_string(None), [])
+        self.assertEqual(Base.from_json_string(""), [])
+
+        s = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}, \
+{"x": 101, "y": 20123, "width": 312321, "id": 522244, "height": 34340}]'
+        d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5},
+             {'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
+             'height': 34340}]
+        self.assertEqual(Base.from_json_string(s), d)
+
+        d = [{}, {}]
+        s = '[{}, {}]'
+        self.assertEqual(Base.from_json_string(s), d)
+        d = [{}]
+        s = '[{}]'
+        self.assertEqual(Base.from_json_string(s), d)
+
+        d = [{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]
+        s = '[{"foobarrooo": 989898}, {"abc": 123}, {"HI": 0}]'
+        self.assertEqual(Base.from_json_string(s), d)
+
+        d = [{"foobarrooo": 989898}]
+        s = '[{"foobarrooo": 989898}]'
+        self.assertEqual(Base.from_json_string(s), d)
+
+        d = [{'x': 1, 'y': 2, 'width': 3, 'id': 4, 'height': 5}]
+        s = '[{"x": 1, "y": 2, "width": 3, "id": 4, "height": 5}]'
+        self.assertEqual(Base.from_json_string(s), d)
+
+        d = [{'x': 101, 'y': 20123, 'width': 312321, 'id': 522244,
+             'height': 34340}]
+        s = '[{"x": 101, "y": 20123, "width": 312321, "id": 522244, \
+"height": 34340}]'
+        self.assertEqual(Base.from_json_string(s), d)
+
+        list_in = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        list_out = Rectangle.from_json_string(
+            Rectangle.to_json_string(list_in))
+        self.assertEqual(list_in, list_out)
+
 
 if __name__ == '__main__':
     unittest.main()
