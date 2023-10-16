@@ -86,6 +86,50 @@ class TestBase(unittest.TestCase):
         dictionary = dictionary.replace("'", '"')
         self.assertEqual(dictionary, json_dictionary)
 
+    def test_I_save_to_file(self):
+        '''Tests save_to_file() method.'''
+        import os
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 105)
+
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 52)
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual(file.read(), "[]")
+
+        r2 = Square(1)
+        Square.save_to_file([r2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 38)
+
 
 if __name__ == '__main__':
     unittest.main()
