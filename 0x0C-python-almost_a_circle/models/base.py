@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """This is base module.
-This module provides a Base Class
+This module priovides a Base Class
 """
+import json
 
 
 class Base:
