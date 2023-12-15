@@ -24,7 +24,8 @@ if __name__ == '__main__':
     cur = db.cursor()
     query = "SELECT * FROM states WHERE states.name LIKE BINARY '{}'\
              ORDER BY states.id"
-    num_rows = cur.execute(query.format(user_input))
+    num_rows = cur.execute("SELECT * FROM states WHERE states.name LIKE BINARY\
+                            %s ORDER BY states.id;", (user_input,))
     rows = cur.fetchall()
     for row in rows:
         print(row)
