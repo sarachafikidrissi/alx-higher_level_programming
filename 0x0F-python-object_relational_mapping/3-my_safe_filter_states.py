@@ -22,7 +22,8 @@ if __name__ == '__main__':
     db = MySQLdb.connect(host='localhost', user=username,
                          passwd=password, db=database, port=3306)
     cur = db.cursor()
-    query = "SELECT * FROM states WHERE states.name LIKE BINARY '{}'"
+    query = "SELECT * FROM states WHERE states.name LIKE BINARY '{}'\
+             ORDER BY states.id"
     num_rows = cur.execute(query.format(user_input))
     rows = cur.fetchall()
     for row in rows:
