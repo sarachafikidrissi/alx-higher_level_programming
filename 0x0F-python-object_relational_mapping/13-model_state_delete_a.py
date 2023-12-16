@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""start habing conversation with database
 """
-import sqlalchemy
+Manipulating database using sqlalchemy
+"""
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import (create_engine)
@@ -10,7 +10,7 @@ import sys
 
 if __name__ == '__main__':
     args = sys.argv
-    if (len(args) != 4):
+    if len(args) != 4:
         print("Usage: {} username password database_name".format(args[0]))
         exit(1)
     username = args[1]
@@ -18,10 +18,11 @@ if __name__ == '__main__':
     data = args[3]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(username, password, data))
+    # create custom session object class from database engine
     Session = sessionmaker(bind=engine)
-    Session.configure(bind=engine)
+    # create instance of new custom session class
     session = Session()
-    states_to_delete = session.query(State).filter(State.name.contains('a'))
-    for states in states_to_delete:
-        session.delete(states_to_delete)
+    states = session.query(State).filter(State.name.contains('a'))
+    for state in states:
+        session.delete(state)
     session.commit()
