@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-"""This is model_state.py module
+"""This is model_city.py module
 """
-
-import sqlalchemy
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Sequence
+from model_state import Base
+from sqlalchemy import Column, Integer, String, ForeignKey
 
 
-Base = declarative_base()
-
-
-class State(Base):
-    """This is states class that inherites from Base
+class City(Base):
+    """This is City  class that inherites from Base
 
     Attributes:
         id (INT) : calss attribute represents a column of unique integer
         name (str) : class attribute that represents a column of a string
+        state_id (int) : class attribute represents a columnn of integer
     """
 
-    __tablename__ = 'states'
+    __tablename__ = 'cities'
     id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey("state.id"), nullable=False)
