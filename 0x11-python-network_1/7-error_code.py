@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-send a request to the url 
+send a request to the url
 """
 from requests import get
 from sys import argv
